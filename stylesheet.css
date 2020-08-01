@@ -51,3 +51,56 @@ ul {
   height: auto;
   border-radius: 5px;
 }
+
+.change-btn-wrapper {
+  width: 500px;
+  margin: 20px auto;
+  font-size: 18px;
+}
+
+/* :after「擬似要素」HTMLには書かれていない要素もどきをCSSで作ることができる。「before」もある。CSS2は「:」1つ、CSS3は「:」2つ　*/
+/* 「:before」を使うと<セレクタ>の直前に要素もどきが挿入され、「:after」を使うと</セレクタ>の直後に要素もどきが挿入される */
+.change-btn-wrapper:after {
+  content: " "; /* 「" "」内に挿入したい文字などを記述する。ない場合は「" "」のみ。以下contentに対するスタイルの指定 */
+  clear: both; /* 「clear」でfloatの解除、回り込みを防ぎ親要素に高さを持たせる。「both」は左寄せ、または右寄せされた全ての要素に対する回り込みを解除。他にleft、rightがある */
+  display: block;
+}
+
+.prev-btn {
+  cursor: pointer;
+  float: left;
+}
+
+.next-btn {
+  cursor: pointer;
+  float: right;
+}
+
+.slide-b {
+  display: none;  
+}
+
+.active {
+  display: block;  
+}
+
+.index-btn-wrapper {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.index-btn {
+  display: inline-block;
+  color: #4e90af;
+  background-color: #e0f5ff;
+  width: 40px;
+  padding: 6px 0;
+  margin: 0 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.index-btn:hover {
+  color: #fff;
+  background-color: #5cabd0;
+}
