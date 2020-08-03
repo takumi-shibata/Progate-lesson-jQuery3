@@ -69,6 +69,8 @@ ul {
 .prev-btn {
   cursor: pointer;
   float: left;
+  /* 最初に表示されている初期状態のスライド画像には「次へ」のボタンのみが必要なため「前へ」のボタンは非表示 */
+  display: none;
 }
 
 .next-btn {
