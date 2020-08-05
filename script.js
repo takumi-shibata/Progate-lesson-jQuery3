@@ -8,7 +8,7 @@ $(function() {
   // 関数を使った共通部分のまとめ。「次へ」「前へ」のボタン(change-btn)を押した時、数字のボタン(index-btn)を押した時の「次へ」「前へ」(change-btn)の表示・非表示の設定
   function toggleChangeBtn () {
 
-  	// activeがついているスライド画像のインデント番号の取得
+    // activeがついているスライド画像のインデント番号の取得
     var slideIndex = $('.slide-b').index($('.active'));
 
     // CSSで非表示にしたボタンを表示させる設定(※全てのスライドでボタンが非表示になっているため。必要がないのは最初のスライドの「前へ」と最後のスライドの「次へ」のみ。以下で設定)
@@ -63,4 +63,9 @@ $(function() {
     toggleChangeBtn ();
 
   });
+
+  // textメソッドは引数を指定せずに用いることで、要素内の文字列を取得することもできる！htmlメソッドとcssメソッドも同様に取得できる
+  var title = $('#title').text();
+  // 上記で取得した文字列を「#title-text」に適用
+  $('#title-text').text(title);
 });
