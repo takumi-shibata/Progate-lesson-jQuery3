@@ -224,6 +224,49 @@ h3:before, h3:after{
 }
 
 
+/* 入力欄への自動入力(キャラクターボタン) */
+.call-to-action {
+  text-align: center;
+  font-size: 18px;
+}
+
+.option-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.option-group {
+  margin-bottom: 12px;
+  margin: 20px auto;
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.option-image {
+  width: 120px;
+  height: auto;
+}
+
+.option-btn {
+  cursor: pointer;
+  width: 154px;
+  margin: 10px;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #5dca88;
+  box-shadow: 0px 4px #279C56;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.option-btn:active{
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+}
+
+
 /* フォーム作成 */
 .form .select-form, .form .text-form {
   padding: 0 10px;
@@ -280,4 +323,9 @@ h3:before, h3:after{
 .output-item {
   font-size: 18px;
   margin: 8px 0px;
+}
+
+/* 入力フォームに空欄があった際に表示するエラー文のクラス */
+.error-message {
+  height: 10px;
 }

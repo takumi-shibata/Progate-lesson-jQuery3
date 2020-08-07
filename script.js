@@ -5,6 +5,7 @@ $(function() {
     $('.slide').eq(1).fadeOut();
   });
 
+
   // 関数を使った共通部分のまとめ。「次へ」「前へ」のボタン(change-btn)を押した時、数字のボタン(index-btn)を押した時の「次へ」「前へ」(change-btn)の表示・非表示の設定
   function toggleChangeBtn () {
 
@@ -23,6 +24,7 @@ $(function() {
       $('.next-btn').hide();
     }
   }
+
 
   // indexメソッド
   // ①インデント番号の取得: $('セレクタ').index($('取得したいインデント番号のセレクタ'));
@@ -64,6 +66,7 @@ $(function() {
 
   });
 
+
   // textメソッドは引数を指定せずに用いることで、要素内の文字列を取得することもできる！htmlメソッドとcssメソッドも同様に取得できる
   var title = $('#title').text();
   // 上記で取得した文字列を「#title-text」に適用
@@ -73,7 +76,6 @@ $(function() {
   // attrメソッド: ①第一引数に属性名、第二引数にその属性値を指定することで属性を追加することができる。
   // $('h1').attr('id',title); h1要素にtitleというidをセット
 
-
   // attrメソッド: ②第二引数を指定しない場合は、その属性の値を取得する事が出来る
   var id = $('#content').attr('id'); // #contentのidの値(content)を取得
   $('#content-id').text(id);
@@ -81,11 +83,36 @@ $(function() {
   var href = $('#link').attr('href'); // #linkのhrefの値(https://prog-8.com)を取得
   $('#link-href').text(href);
 
+  
+  // 入力欄への自動入力(キャラクターボタン)
+  $('.option-btn').click(function() {
+    var clickedOption = $(this).attr('data-option');
+    // valメソッド①: optionタグのvalue属性に合致する値をvalメソッドの引数に指定する事でselectタグを自動で選択させることができる
+    $('#select-form').val(clickedOption);
+
+    var optionText = $(this).text();
+    // valメソッド②: 引数に値を指定することで、フォームに値をセットすることもできる(入力欄の自動入力)
+    $('#text-form').val(optionText + 'が好きな理由は、');
+  });
+
 
   // submitイベント: 送信ボタンもしくは「Enter」キーでフォーム(form)が送信されたときのイベント
   $('#form').submit(function () {
-    // valメソッド: input、textareaタグに入力されている値を取得する事ができる
+    // valメソッド③: input、textarea、optionタグに入力されているフォームの値を取得する事ができる
+    var selectValue = $('#select-form').val();
     var textValue = $('#text-form').val();
+
+    
+    // 入力フォームに空欄があった際に表示するエラー文の設定
+    // 中身の無い文字列は「''」で表記する
+    if (textValue == '') {
+      $('#error-message').text('理由を記入してください');
+    } else {
+      $('#error-message').text('');
+    }
+
+
+    $('#output-select').text(selectValue);
     $('#output-text').text(textValue);
     return false;
   });
