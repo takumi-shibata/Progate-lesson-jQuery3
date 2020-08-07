@@ -69,8 +69,10 @@ $(function() {
   // 上記で取得した文字列を「#title-text」に適用
   $('#title-text').text(title);
 
+
   // attrメソッド: ①第一引数に属性名、第二引数にその属性値を指定することで属性を追加することができる。
   // $('h1').attr('id',title); h1要素にtitleというidをセット
+
 
   // attrメソッド: ②第二引数を指定しない場合は、その属性の値を取得する事が出来る
   var id = $('#content').attr('id'); // #contentのidの値(content)を取得
@@ -78,4 +80,13 @@ $(function() {
 
   var href = $('#link').attr('href'); // #linkのhrefの値(https://prog-8.com)を取得
   $('#link-href').text(href);
+
+
+  // submitイベント: 送信ボタンもしくは「Enter」キーでフォーム(form)が送信されたときのイベント
+  $('#form').submit(function () {
+    // valメソッド: input、textareaタグに入力されている値を取得する事ができる
+    var textValue = $('#text-form').val();
+    $('#output-text').text(textValue);
+    return false;
+  });
 });
