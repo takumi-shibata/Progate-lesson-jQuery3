@@ -67,11 +67,13 @@ li {
   border-radius: 5px;
 }
 
+
 .slide-b {
   margin-top: 30px;
   display: none;  
 }
 
+/* 初期画像の設定、slide-bクラス1枚目(インデックス番号0)の画像 */
 .active {
   display: block;  
 }
