@@ -20,7 +20,7 @@ $(function() {
     // ※等価演算子「===」と「==」は判別基準が異なる！「===」は比較する値がどちらも「同一」な場合に用いる。「==」は比較する値が「等しい」場合に用いる。
     if (slideIndex == 0) {
       $('.prev-btn').hide();
-      // スライドの枚数が変わった時の処理「.length」は「.slide-b」の数を取得するので、インデント番号を取得したい場合は「-1」
+      // スライドの枚数が変わった時の処理「.length」は「.slide-b」の数を取得するので、インデックス番号を取得したい場合は「-1」
     } else if (slideIndex == $('.slide-b').length -1) {
       $('.next-btn').hide();
     }
@@ -65,5 +65,57 @@ $(function() {
 
     // 共通部分の関数の呼び出し
     toggleChangeBtn ();
+  });
+
+
+  // textメソッドは引数を指定せずに用いることで、要素内の文字列を取得することもできる！htmlメソッドとcssメソッドも同様に取得できる
+  var title = $('#title').text();
+  // 上記で取得した文字列を「#title-text」に適用
+  $('#title-text').text(title);
+
+
+  // attrメソッド: ①第一引数に属性名、第二引数にその属性値を指定することで、指定したセレクタにそれぞれ追加することができる。
+  // $('h1').attr('id',title); h1要素にtitleというidをセット
+
+  // attrメソッド: ②第二引数を指定しない場合は、その属性の値を取得する事が出来る
+  var id = $('.section-content p').attr('id'); // #contentのidの値(content)を取得
+  $('#content-id').text(id);
+
+  var href = $('.section-content a').attr('href'); // #linkのhrefの値(https://prog-8.com)を取得
+  $('#link-href').text(href);
+
+
+  // 入力欄への自動入力(キャラクターボタン)
+  $('.option-btn').click(function() {
+    var clickedOption = $(this).attr('data-option');
+    // valメソッド①: optionタグのvalue属性に合致する値をvalメソッドの引数に指定する事でselectタグを自動で選択させることができる
+    $('#select-form').val(clickedOption);
+
+    var optionText = $(this).text();
+    // valメソッド②: 引数に値を指定することで、フォームに値をセットすることもできる(入力欄の自動入力)
+    $('#text-form').val(optionText + 'が好きな理由は、');
+  });
+
+
+  // submitイベント: 送信ボタンもしくは「Enter」キーでフォーム(form)が送信されたときのイベント
+  $('#form').submit(function () {
+    // valメソッド③: input、textarea、optionタグに入力されているフォームの値を取得する事ができる
+    var selectValue = $('#select-form').val();
+    var textValue = $('#text-form').val();
+
+    
+    // 入力フォームに空欄があった際に表示するエラー文の設定
+    // 中身の無い文字列は「''」で表記する
+    // ※変数で定義しているため以下のようなif文の条件式になっているが、本来はif ($('#text-form').val() == '')である
+    if (textValue == '') {
+      $('#error-message').text('理由を記入してください');
+    } else {
+      $('#error-message').text('');
+    }
+
+
+    $('#output-select').text(selectValue);
+    $('#output-text').text(textValue);
+    return false;
   });
 });
