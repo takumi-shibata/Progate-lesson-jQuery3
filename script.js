@@ -78,10 +78,10 @@ $(function() {
   // $('h1').attr('id',title); h1要素にtitleというidをセット
 
   // attrメソッド: ②第二引数を指定しない場合は、その属性の値を取得する事が出来る
-  var id = $('.section-content p').attr('id'); // #contentのidの値(content)を取得
+  var id = $('.section-content p').attr('id'); // idの値(content)を取得
   $('#content-id').text(id);
 
-  var href = $('.section-content a').attr('href'); // #linkのhrefの値(https://prog-8.com)を取得
+  var href = $('.section-content a').attr('href'); // hrefの値(https://prog-8.com)を取得
   $('#link-href').text(href);
 
 
