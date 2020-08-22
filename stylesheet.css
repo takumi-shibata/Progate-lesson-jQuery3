@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: "Hiragino Maru Gothic ProN", sans-serif;
+  /* フォントの太さ */
+  font-weight: 400;
+  font-size: 14px;
+  color: #888;
+  /* 小さい文字を綺麗に見せる方法 */
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide-wrapper {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+  color: #5e6f84;
+  padding: 60px 0;
+}
+
+.slide-title {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+
+.hide-btn-wrapper {
+  font-size: 16px;
+  margin: 20px 0 30px 0;
+}
+
+.hide-btn {
+  display: inline-block;
+  color: #4e90af;
+  background-color: #e0f5ff;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.hide-btn:hover {
+  color: #fff;
+  background-color: #5cabd0;
+}
+
+
+.slides {
+  padding: 0;
+}
+
+/* ----- #hide-btnのスライド画像 ----- */
+.slide {
+  display: inline-block;
+}
+
+.slide img {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+}
+/* -------------------------------- */
+
+
+.change-btn-wrapper {
+  width: 500px;
+  margin: 20px auto;
+  font-size: 18px;
+}
+
+/* :after「擬似要素」HTMLには書かれていない要素もどきをCSSで作ることができる。「before」もある。CSS2は「:」1つ、CSS3は「:」2つ　*/
+/* 「:before」を使うと<セレクタ>の直前に要素もどきが挿入され、「:after」を使うと</セレクタ>の直後に要素もどきが挿入される */
+.change-btn-wrapper:after {
+  content: " "; /* 「" "」内に挿入したい文字などを記述する。ない場合は「" "」のみ。以下contentに対するスタイルの指定 */
+  clear: both; /* 「clear」でfloatの解除、回り込みを防ぎ親要素に高さを持たせる。「both」は左寄せ、または右寄せされた全ての要素に対する回り込みを解除。他にleft、rightがある */
+  display: block;
+}
+
+.prev-btn {
+  cursor: pointer;
+  float: left;
+  /* 最初に表示されているスライド画像には「前へ」のボタンが必要ないため「前へ」のボタンは非表示 */
+  display: none;
+}
+
+.next-btn {
+  cursor: pointer;
+  float: right;
+}
+
+
+/* -------- スライド画像 -------- */
+.slide-b {
+  display: none;  
+}
+
+/* 初期画像の設定、slide-bクラス1枚目(インデックス番号0)の画像 */
+.active {
+  display: block;  
+}
+/* ---------------------------- */
+
+
+.index-btn-wrapper {
+  font-size: 16px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.index-btn {
+  display: inline-block;
+  color: #4e90af;
+  background-color: #e0f5ff;
+  width: 40px;
+  padding: 6px 0;
+  margin: 0 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.index-btn:hover {
+  color: #fff;
+  background-color: #5cabd0;
+}
