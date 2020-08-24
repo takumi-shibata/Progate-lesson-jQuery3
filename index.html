@@ -23,11 +23,13 @@
           <li class="slide"><img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/winter.jpg"></li>
         </ul>
 
+
         <!-- スライド画像を切り替える前後のボタン -->
         <div class="change-btn-wrapper">
           <div class="change-btn prev-btn">← 前へ</div>
           <div class="change-btn next-btn">次へ →</div>
         </div>
+
 
         <!-- スライド画像 -->
         <ul class="slides">
@@ -38,6 +40,7 @@
           <li class="slide-b"><img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/autumn.jpg"></li>
           <li class="slide-b"><img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/winter.jpg"></li>
         </ul>
+        
 
         <!-- スライド画像を切り替える数字のボタン -->
         <div class="index-btn-wrapper">
@@ -47,8 +50,96 @@
           <div class="index-btn">4</div>
           <div class="index-btn">5</div>
         </div>
-    </div>
+
+
+      <!-- about -->
+      <div class="container">
+        <div class="section-title">
+          <h3 id="title">にんじゃわんこについて</h3>
+        </div> 
+
+        <div class="section-content">
+          <p id="content">
+            Progateで飼われている柴犬。
+            忍者の格好をするのが趣味(可愛いさが際立つと思っている)。
+            妖精によって深夜4時半頃に召喚され、それ以来Progateのサイトに居座るように。
+            Progateでは、ユーザーの癒やしから、学習のサポートまでを担当。
+            また、フィードバック番長も努め、ユーザーにフィードバックを返信しないと毎日22時に怒鳴ってくる。
+          </p>
+          <a href="https://prog-8.com" id="link">→ にんじゃわんこについてもっと詳しく</a>
+        </div>
         
+        <div class="output-wrapper">
+          <h4>内容</h4>
+          <div class="output-inner">
+            <p class="output-item">タイトル：<span id="title-text"></span></p>
+            <p class="output-item">文章のid：<span id="content-id"></span></p>
+            <p class="output-item">リンクのURL：<span id="link-href"></span></p>
+          </div>
+        </div>        
+      </div>
+
+
+      <!-- 投稿フォーム -->
+      <div class="container">
+        <div class="section-title">
+          <h3>キャラクター総選挙</h3>  
+        </div>
+        
+        <!-- キャラクターボタン -->
+        <p class="call-to-action">好きなキャラクターをクリック！</p>
+        <div class="option-wrapper">
+          <div class="option-group">
+            <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_baby_wanko.png">
+            <!-- 「data-」から始まる属性名にする事で、属性を自分でつくることができる -->
+            <div class="option-btn" data-option="1">1. ベイビーわんこ</div>
+          </div>
+          
+          <div class="option-group">
+            <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_wanko.png">
+            <div class="option-btn" data-option="2">2. にんじゃわんこ</div>
+          </div>
+          
+          <div class="option-group">
+            <img class="option-image" src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/progate_hitsuji.png">
+            <div class="option-btn" data-option="3">3. ひつじ仙人</div>
+          </div>
+        </div>
+
+        <div class="section-content">
+          <form id="form" class="form">
+            <div class="form-group">
+              <div>キャラクター：</div>
+              <!-- 「select」タグはセレクトボックスを作成するタグ -->
+              <select id="select-form" class="select-form">
+                <!-- 「option」タグはセレクトボックスの選択肢を指定するタグ -->
+                <option value="0">選択してください</option>
+                <option value="1">1. にんじゃわんこ</option>
+                <option value="2">2. ひつじ仙人</option>
+                <option value="3">3. ベイビーわんこ</option>
+              </select>  
+            </div>
+            
+            <div class="form-group">
+              <div>理由：</div>
+              <!-- 入力フォームが空の時に出すエラーアラート -->
+              <p id="error-message" class="error-message"></p>
+              <textarea id="text-form" class="text-form"></textarea>  
+            </div>
+            <button type="submit" class="btn btn-submit">送信</button>
+          </form>
+          
+          <div class="output-wrapper">
+            <h4>結果</h4>
+            <div class="output-inner">
+              <p class="output-item">好きなキャラクター：<span id="output-select"></span></p>
+              <p class="output-item">理由：<span id="output-text"></span></p>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

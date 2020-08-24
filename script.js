@@ -66,4 +66,63 @@ $(function() {
     // 共通部分の関数の呼び出し
     toggleChangeBtn ();
   });
+
+
+  // textメソッドは引数を指定せずに用いることで、要素内の文字列を取得することもできる！htmlメソッドとcssメソッドも同様に取得できる
+  var title = $('#title').text();
+  // 上記で取得した文字列を「#title-text」に適用
+  $('#title-text').text(title);
+
+
+  // attrメソッド: ①第一引数に属性名、第二引数にその属性値を指定することで、指定したセレクタにそれぞれ追加することができる。
+  // $('h1').attr('id',title); h1要素にtitleというidをセット → h1 id="title"って感じになる
+
+  // attrメソッド: ②第二引数を指定しない場合は、その属性の値を取得する事が出来る
+  var id = $('.section-content p').attr('id'); // idの値(content)を取得
+  $('#content-id').text(id);
+
+  var href = $('.section-content a').attr('href'); // hrefの値(https://prog-8.com)を取得
+  $('#link-href').text(href);
+
+
+  // 入力欄への自動入力(キャラクターボタン)
+  $('.option-btn').click(function() {
+    var clickedOption = $(this).attr('data-option');
+    // valメソッド①: optionタグのvalue属性に合致する値をvalメソッドの引数に指定する事でselectタグを自動で選択させることができる
+    $('#select-form').val(clickedOption);
+
+    var optionText = $(this).text();
+    // valメソッド②: 引数に値を指定することで、フォームに値をセットすることもできる(入力欄の自動入力)
+    $('#text-form').val(optionText + 'が好きな理由は、');
+  });
+
+
+  // submitイベント: 送信ボタンもしくは「Enter」キーでフォーム(form)が送信されたときのイベント
+  $('#form').submit(function () {
+    // valメソッド③: input、textarea、optionタグに入力されているフォームの値を取得する事ができる
+    var selectValue = $('#select-form').val();
+    var textValue = $('#text-form').val();
+
+    
+    // 入力フォームに空欄があった際に表示するエラー文の設定
+    // 中身の無い文字列は「''（シングルコーテション)もしくは""(ダブルコーテション)」で表記する
+
+    // ※変数で定義しているため以下のようなif文の条件式になっているが、本来はif ($('#text-form').val() == '')である
+    // ※空文字列の「''（シングルコーテション)もしくは""(ダブルコーテション)」には間を入れない！
+    if (textValue == '') {
+      $('#error-message').text('理由を記入してください');
+    } else {
+      $('#error-message').text('');
+    }
+
+
+    $('#output-select').text(selectValue);
+    $('#output-text').text(textValue);
+
+
+    // イベント処理の中断「return false」
+    // イベント処理というのは、ブラウザが標準で提供している処理のことで「フォーム」や「リンク」などが該当する。
+    // 「フォームを送信すると自動的に画面が更新される」や「リンクをクリックすると自動的にリンク先へ画面が遷移される」など、「return false」はこのようなブラウザ側で行う処理を中断するという意味
+    return false;
+  });
 });
